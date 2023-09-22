@@ -1,120 +1,140 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Official Idaho Highway Maps</title>
-    <style type="text/css">
-      body {
-          padding: 0;
-          margin: 0;
-      }
-      html, body, #map {
-          height: 100%;
-      }
-    </style>
+  <title>Official Idaho Highway Maps</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="utf-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="../dist/leaflet.ie.css" /><![endif]-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+   crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
+      <script src="proj4-compressed.js"></script>
+    <script src="proj4leaflet.js"></script>
+  <style type="text/css">
+    body {
+       margin: 0;
+       padding: 0;
+    }
+    html, body, #map{
+       width: 100%;
+       height: 100%;
+    }
+  </style>
 </head>
 <body>
-    <div id="map"></div>
+  <div id="map"></div>
+  <script>
+  
+      var resolutions = [465, 233, 117.1875, 58.59375];
 
-    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
-    <script src="proj4js-compressed.js"></script>
-    <script src="proj4leaflet.js"></script>
-    <script>
-
-
-    var resolutions = [465, 233, 117.1875, 58.59375];
-
-    var tile1947 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1947/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
+    var tile1947 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1947/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
     });
 
-    var tile1950 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1950/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
+    var tile1950 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1950/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
     });
 
-    var tile1953 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1953/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
+    var tile1953 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1953/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
     });
 
-    var tile1962 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1962/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
+    var tile1962 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1962/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
     });
 
-    var tile1963 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1963/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
+    var tile1963 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1963/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
     });
 
-    var tile1964 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1964/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
+    var tile1964 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1964/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
     });
 
-    var tile1965 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1965/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
+    var tile1965 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1965/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
     });
 
-    var tile1967 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1967/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
+    var tile1967 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1967/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
     });
+
+    var tile1969 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1969/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
+    });
+    var tile1970 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1970/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
+    });
+
+    var tile1972 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1972/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
+    });
+
+    var tile1987 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-1987/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
+    });
+
+    var tile2007 = new L.TileLayer('https://tiles.sagebrushgis.com/idaho/idaho-2007/{z}/{x}/{y}.png',{
+      minZoom: 0,
+      maxZoom: resolutions.length-1,
+      continuousWorld: true
+    });
+  
+  
+        var baseMaps = {
+          "1947": tile1947,
+          "1950": tile1950,
+          "1953": tile1953,
+          "1962": tile1962,
+          "1963": tile1963,
+          "1964": tile1964,
+          "1965": tile1965,
+          "1967": tile1967,
+          "1969": tile1969,
+          "1970": tile1970,
+          "1972": tile1972,
+          "1987": tile1987,
+          "2007": tile2007
+        };
+
+      var overlayMaps = {
+      };
     
-    var tile1969 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1969/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
-    });
-    var tile1970 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1970/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
-    });
-    
-    var tile1972 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1972/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
-    });
-
-    var tile1987 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-1987/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
-    });
-
-    var tile2007 = new L.TileLayer('http://sagebrushgis.s3.amazonaws.com/OfficialHighwayMaps/Tiles/idaho-2007/{z}/{x}/{y}.png',{
-            minZoom: 0,
-            maxZoom: resolutions.length-1,
-            continuousWorld: true
-    });
-
     var southWest = L.latLng(41.5, -118);
     var northEast = L.latLng(49.5, -110);
     var bounds = L.latLngBounds(southWest, northEast);
 
-      var crs = L.CRS.proj4js('SR-ORG:6677', '+proj=tmerc +lat_0=42 +lon_0=-114 +k=0.9996 +x_0=2500000 +y_0=1200000 +ellps=GRS80 +units=m +no_defs');
+      var crs = new L.Proj.CRS('SR-ORG:6677', '+proj=tmerc +lat_0=42 +lon_0=-114 +k=0.9996 +x_0=2500000 +y_0=1200000 +ellps=GRS80 +units=m +no_defs');
       crs.scale = function(zoom) {
-          return 1 / resolutions[zoom];
+        return 1 / resolutions[zoom];
       };
 
       var map = new L.Map('map', {
@@ -127,27 +147,8 @@
         zoom: 3,
         continuousWorld: true
       });
-
-        var baseMaps = {
-            "1947": tile1947,
-            "1950": tile1950,
-            "1953": tile1953,
-            "1962": tile1962,
-            "1963": tile1963,
-            "1964": tile1964,
-            "1965": tile1965,
-            "1967": tile1967,
-            "1969": tile1969,
-            "1970": tile1970,
-            "1972": tile1972,
-            "1987": tile1987,
-            "2007": tile2007
-        };
-
-        var overlays = {
-        };
-
-        L.control.layers(baseMaps,overlays).addTo(map);
-    </script>
+  
+      L.control.layers(baseMaps,overlayMaps).addTo(map);
+  </script>
 </body>
 </html>
